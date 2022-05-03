@@ -28,6 +28,7 @@ class MoviePresenter(
     }
 
     override fun networkError() {
+        activity!!.hideProgress()
         activity!!.showToast("NetworkError")
     }
 

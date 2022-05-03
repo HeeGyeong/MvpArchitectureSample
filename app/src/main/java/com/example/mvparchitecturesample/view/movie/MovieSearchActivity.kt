@@ -1,7 +1,6 @@
 package com.example.mvparchitecturesample.view.movie
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,15 +36,17 @@ class MovieSearchActivity : AppCompatActivity(), MovieContract.View {
 
     override fun showProgress() {
         progressBar.visibility = View.VISIBLE
-        Log.d("Sample", "showProgress()")
     }
 
     override fun hideProgress() {
         progressBar.visibility = View.INVISIBLE
-        Log.d("Sample", "hideProgress()")
     }
 
     override fun changeMovieList(movies: List<MovieEntity>) {
+        if (movies.isEmpty()) {
+            showToast("Movie list is Empty")
+        }
+
         movieAdapter!!.submitList(movies)
     }
 
