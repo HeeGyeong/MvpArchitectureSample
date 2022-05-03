@@ -10,7 +10,8 @@ import com.example.mvparchitecturesample.R
 import com.example.mvparchitecturesample.databinding.ItemMovieBinding
 import com.example.mvparchitecturesample.model.MovieEntity
 
-class MovieAdapter : ListAdapter<MovieEntity, MovieAdapter.ViewHolder>(diffUtil) {
+class MovieAdapter(private var presenter: MovieContract.Presenter) :
+    ListAdapter<MovieEntity, MovieAdapter.ViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemMovieBinding = DataBindingUtil.inflate(
@@ -20,7 +21,13 @@ class MovieAdapter : ListAdapter<MovieEntity, MovieAdapter.ViewHolder>(diffUtil)
             false
         )
 
-        return ViewHolder(binding)
+        return ViewHolder(binding).apply {
+            binding.root.setOnClickListener {
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                presenter.itemClick(getItem(position))
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
