@@ -43,10 +43,6 @@ class MovieSearchActivity : AppCompatActivity(), MovieContract.View {
     }
 
     override fun changeMovieList(movies: List<MovieEntity>) {
-        if (movies.isEmpty()) {
-            showToast("Movie list is Empty")
-        }
-
         movieAdapter!!.submitList(movies)
     }
 

@@ -22,7 +22,7 @@ interface MovieContract {
 
     interface Presenter {
         fun searchButtonClick(inputText: String)
-        fun networkError()
+        fun apiError()
 
         fun itemClick(movie: MovieEntity)
     }

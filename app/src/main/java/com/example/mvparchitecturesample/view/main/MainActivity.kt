@@ -8,8 +8,8 @@ import com.example.mvparchitecturesample.R
 import com.example.mvparchitecturesample.view.movie.MovieSearchActivity
 
 class MainActivity : AppCompatActivity(), MainContract.View {
-
     var presenter: MainPresenter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun btnClick(view: View) {
         when (view.id) {
             R.id.moveBtn -> {
-                moveActivity()
+                presenter!!.onMoveButtonClick()
             }
         }
     }
