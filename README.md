@@ -10,4 +10,4 @@ Presenter에 대한 DI는 적용하지 않았습니다.
 ## Blog
 Mvp Architecture에 대한 설명은 다음 블로그에 작성해 두었습니다.
 
-[Tistory Blog](https://heegs.tistory.com/114 "MVP Architecture Sample")
+[Tistory Blog - MVP Pattern](https://heegs.tistory.com/114 "MVP Architecture Sample")
